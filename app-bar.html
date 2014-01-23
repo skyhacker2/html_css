@@ -1,0 +1,199 @@
+<html>
+<head>
+	<title>App Bar</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.app-bar {
+			position: fixed;
+			left: 0px;
+			top:0px;
+			bottom: 0px;
+			width:65px;
+			background-color: #f4f4f4;
+			display: block;
+		}
+		.app-bar.mouse-enter {
+			width: 270px;
+		}
+		.app-bar.mouse-enter .main-menu {
+			width: 270px;
+		}
+		.main-menu {
+			position: absolute;
+			top: 0px;
+			bottom: 40px;
+			width: 65px;
+			overflow: hidden;
+			background-color: #f4f4f4;
+		}
+		.main-menu ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			padding-top: 26px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 270px;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+		.main-menu ul a {
+			font-size: 19px;
+			line-height: 52px;
+			color: #888;
+			display: inline-block;
+			width: 100%;
+		}
+		.main-menu ul li:hover {
+			background-color: #fff;
+		}
+		.main-menu ul a:hover{
+			color: #555;
+		}
+		.main-menu ul li.active a {
+			color: #555;
+		}
+		.main-menu .icon {
+			width: 48px;
+			text-align: center;
+			margin-right: 10px;
+			margin-left: 10px;
+		}
+		.main-menu ul a span {
+			display: block;
+			float: left;
+		}
+		.main-menu ul li.active {
+			background-color: #fff;
+		}
+		.main-menu .fa {
+			line-height: 52px;
+		}
+		.relative {
+			position: relative;
+		}
+		.overflow-hidden {
+			overflow: hidden;
+		}
+		.app-bar, .content, .main-menu {
+			transition: all 0.2s;
+		}
+		.content {
+			margin-left: 65px;
+			padding: 20px;
+			margin-right: 0px;
+		}
+		.content.menu-on {
+			margin-left: 270px;
+		}
+		.app-bar .handler {
+			position: absolute;
+			bottom: 0px;
+			height: 40px;
+			text-align: center;
+			line-height: normal;
+			display: block;
+			width: 100%;
+			color: #888;
+		}
+		.handler:hover {
+			background-color: #ccc;
+		}
+		.fa-lock, .fa-unlock {
+			line-height: 40px;
+		}
+		.app-bar .sub-menu {
+			display: block;
+			position: fixed;
+			right: auto;
+			bottom: 0;
+			width: 250px;
+			left: 270px;
+			top: 0;
+			background-color: #373737;
+			border-left: 1px solid #373737;
+			border-right: 1px solid #373737;
+			transition: all 0.2s;
+		}
+		.app-bar .sub-menu li {
+			background-color: #484848;
+			line-height: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="relative">
+		<div class="app-bar">
+			<div class="main-menu">
+				<ul>
+					<li class="active"><a href="#">
+						<span class="icon"><i class="fa fa-home fa-2x"></i></span>
+						<span>Home</span>
+					</a></li>
+					<li><a href="#">
+						<span class="icon"><i class="fa fa-user fa-2x"></i></span>
+						<span>Manage User</span>
+					</a></li>
+					<li><a href="#">
+						<span class="icon"><i class="fa fa-gear fa-2x"></i></span>
+						<span>Setting</span>
+					</a></li>
+					<li><a href="#">
+						<span class="icon"><i class="fa fa-power-off fa-2x"></i></span>
+						<span>Logout</span>
+					</a></li>
+				</ul>
+			</div>
+			<div class="sub-menu">
+				<ul>
+					<li class="active"><a href="#">
+						<span class="icon"><i class="fa fa-home fa-2x"></i></span>
+						<span>Home</span>
+					</a></li>
+					<li><a href="#">
+						<span class="icon"><i class="fa fa-user fa-2x"></i></span>
+						<span>Manage User</span>
+					</a></li>
+					<li><a href="#">
+						<span class="icon"><i class="fa fa-gear fa-2x"></i></span>
+						<span>Setting</span>
+					</a></li>
+					<li><a href="#">
+						<span class="icon"><i class="fa fa-power-off fa-2x"></i></span>
+						<span>Logout</span>
+					</a></li>
+				</ul>
+			</div>
+			<a class="handler" href="javascript:void(0)">
+				<i class="fa fa-unlock fa-2x"></i>
+			</a>
+		</div>
+	</div>
+	<div class="relative content">
+		<h1>Hello World!</h1>
+	</div>
+	<script type="text/javascript">
+		$('.app-bar .main-menu').mouseenter(function(event) {
+			if($('.fa-lock', this).length) return;
+			$('.app-bar').addClass('mouse-enter');
+			$(".content").addClass('menu-on');
+		}).mouseleave(function(event) {
+			if($('.fa-lock', this).length) return;
+			$('.app-bar').removeClass('mouse-enter');
+			$(".content").removeClass('menu-on');
+		});
+		$('.app-bar .handler').on('click', function() {
+			if($('.fa-lock', this).length) {
+				$('.fa-lock', this).removeClass('fa-lock').addClass('fa-unlock');
+			} else {
+				$('.fa-unlock', this).removeClass('fa-unlock').addClass('fa-lock');
+			}
+		
+		});
+	</script>
+</body>
+</html>
