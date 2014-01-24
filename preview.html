@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Preview</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/mod/preview/preview.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<button id="show-preview" class="btn btn-primary">Preview</button>
+<div class="preview">
+	<div class="header off-screen off-left">
+		<button class="btn btn-default">Menu1</button>
+		<button class="btn btn-default">Menu2</button>
+		<a href="#" class="close"><span class="icon"><i class="fa fa-times"></i></span></a>
+	</div>
+</div>
+<script type="text/javascript">
+	$('#show-preview').click(function() {
+		$('.preview .header').removeClass('off-left');
+	});
+	$('.preview .header .close').click(function() {
+		$('.preview .header').addClass('off-left');
+	});
+</script>
+</body>
+</html>
