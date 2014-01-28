@@ -1,0 +1,68 @@
+.shape {
+  border-style: solid;
+  border-width: 0 70px 40px 0;
+  float: right;
+  height: 0;
+  width: 0;
+}
+.offer {
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.175);
+  margin: 15px 0;
+  overflow: hidden;
+}
+.offer .shape-text {
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  position: relative;
+  right: -40px;
+  top: 2px;
+  white-space: nowrap;
+  transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+}
+.offer .offer-content {
+  padding: 0 20px 10px;
+}
+.offer-default {
+  border-color: #999999;
+}
+.offer-default .shape {
+  border-color: transparent #999999 transparent transparent;
+}
+.offer-danger {
+  border-color: #d9534f;
+}
+.offer-danger .shape {
+  border-color: transparent #d9534f transparent transparent;
+}
+.offer-primary {
+  border-color: #2e6da4;
+}
+.offer-primary .shape {
+  border-color: transparent #2e6da4 transparent transparent;
+}
+.offer-info {
+  border-color: #5bc0de;
+}
+.offer-info .shape {
+  border-color: transparent #5bc0de transparent transparent;
+}
+.offer-success {
+  border-color: #3f903f;
+}
+.offer-success .shape {
+  border-color: transparent #3f903f transparent transparent;
+}
+.offer-warning {
+  border-color: #f0ad4e;
+}
+.offer-warning .shape {
+  border-color: transparent #f0ad4e transparent transparent;
+}
+.offer-radius {
+  border-radius: 7px;
+}
