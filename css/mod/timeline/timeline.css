@@ -16,16 +16,15 @@
 .timeline li {
   margin-bottom: 20px;
   position: relative;
+  /* 清除浮动 */
 }
 .timeline li:before,
 .timeline li:after {
-  /* 加入块状元素 */
   content: " ";
   display: table;
 }
 .timeline li:after {
   clear: both;
-  /* 两边都不允许浮动 */
 }
 .timeline li .timeline-panel {
   width: 46%;
