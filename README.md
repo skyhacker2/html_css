@@ -7,3 +7,8 @@ install
 ```bash
 npm install
 ```
+run
+===
+```bash
+grunt server
+```
