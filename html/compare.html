@@ -1,0 +1,272 @@
+<html>
+<head>
+	<title>Compare</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+<link href="../css/font-awesome.css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<style type="text/css">
+	.compare-list {
+		position: fixed;
+		bottom: 0;
+		left: 50%;
+		width: 600px;
+		margin-left: -300px;
+		border: solid 1px #999999;
+		border-bottom: none;
+		background-color: #fbfbfb;
+		z-index: 1029;
+		border-top-right-radius: 4px;
+		border-top-left-radius: 4px
+	}
+	.compare-list .campaigns {
+		width: 400px;
+		border-right: solid 1px #eeeeee;
+	}
+	.compare-list .campaigns .list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border-bottom: solid 1px #eeeeee;
+		max-height: 300px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		display: none;
+	}
+	.compare-list .campaigns li {
+		width: 170px;
+		height: 150px;
+		margin: 10px;
+		padding: 0;
+		overflow: hidden;
+		float: left;
+		position: relative;
+	}
+	.compare-list .campaigns .list li img {
+		display: block;
+		margin: 0;
+		width:170px;
+		height: 120px;
+		border: solid 4px #fff;
+	}
+	.compare-list .campaigns .list li .name {
+		text-overflow: ellipsis;
+		font-size: 14.4px;
+		display: block;
+		height: 30px;
+		width: 170px;
+		line-height: 30px;
+		text-align: center;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+	.compare-list .campaigns .list li .icon {
+		position: absolute;
+		left: 50%;
+		top: 45px;
+		background-color: #555555;
+		color: #fff;
+		width: 30px;
+		height: 30px;
+		margin-left: -15px;
+		line-height: 30px;
+		text-align: center;
+		display: none;
+		cursor: pointer;
+		border-bottom-right-radius: 3px;
+		border-bottom-left-radius: 3px;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+	.compare-list .campaigns .list li:hover .icon {
+		display: block;
+	}
+	.compare-list .ops {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 197px;
+		padding: 5px;
+		text-align: center;
+	}
+	.compare-list .campaigns .footer {
+		line-height: 50px;
+		text-align: center;
+	}
+	.fa {
+		line-height: 30px;
+	}
+
+	.compare-list-top {
+		position: fixed;
+		top: 0;
+		left: 50%;
+		width: 600px;
+		margin-left: -300px;
+		border: solid 1px #999999;
+		border-top: none;
+		background-color: #fbfbfb;
+		z-index: 1029;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px
+	}
+	.compare-list-top .top-list {
+		display: inline-block;
+	}
+	.compare-list-top .top-footer {
+		line-height: 50px;
+		text-align: center;
+	}
+	.compare-list-top .top-list .list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border-bottom: solid 1px #eeeeee;
+		max-height: 300px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		display: none;
+	}
+	.compare-list-top .top-list li {
+		width: 170px;
+		height: 150px;
+		margin: 10px;
+		overflow: hidden;
+		float: left;
+		position: relative;
+	}
+	.compare-list-top .top-list .list li img {
+		display: block;
+		margin: 0;
+		width:170px;
+		height: 120px;
+		border: solid 4px #fff;
+	}
+	.compare-list-top .top-list .list li .name {
+		text-overflow: ellipsis;
+		font-size: 14.4px;
+		display: block;
+		height: 30px;
+		width: 170px;
+		line-height: 30px;
+		text-align: center;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+	.compare-list-top .top-list .list li .icon {
+		position: absolute;
+		left: 50%;
+		top: 45px;
+		background-color: #555555;
+		color: #fff;
+		width: 30px;
+		height: 30px;
+		margin-left: -15px;
+		line-height: 30px;
+		text-align: center;
+		display: none;
+		cursor: pointer;
+		border-bottom-right-radius: 3px;
+		border-bottom-left-radius: 3px;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+	.compare-list-top .top-list .list li:hover .icon {
+		display: block;
+	}
+</style>
+<body>
+	<div class="compare-list" id="compare-list">
+		<div class="campaigns">
+			<ul class="list">
+				<li>
+					<img src="../img/mod/compare/1.png" />
+					<span class="name">CSDN.NET - 全球最大中文IT社区，为IT专业技术人员提供最全面的信息传播和服务平台</span>
+					<span class="icon" data-rfl-click="removeCompareCampaign"><i class="fa fa-trash-o"></i></span>
+				</li>
+				<li>
+					<img src="../img/mod/compare/1.png" />
+					<span class="name">CSDN.NET - 全球最大中文IT社区，为IT专业技术人员提供最全面的信息传播和服务平台</span>
+					<span class="icon" data-rfl-click="removeCompareCampaign"><i class="fa fa-trash-o"></i></span>
+				</li>
+				<li>
+					<img src="../img/mod/compare/1.png" />
+					<span class="name">CSDN.NET - 全球最大中文IT社区，为IT专业技术人员提供最全面的信息传播和服务平台</span>
+					<span class="icon" data-rfl-click="removeCompareCampaign"><i class="fa fa-trash-o"></i></span>
+				</li>
+				<li>
+					<img src="../img/mod/compare/1.png" />
+					<span class="name">CSDN.NET - 全球最大中文IT社区，为IT专业技术人员提供最全面的信息传播和服务平台</span>
+					<span class="icon" data-rfl-click="removeCompareCampaign"><i class="fa fa-trash-o"></i></span>
+				</li>
+			</ul>
+			<div class="footer">
+				<strong>1</strong> campaign(s) in the compare list
+			</div>
+		</div>
+		<div class="ops">
+			<button class="btn btn-primary">Compare</button>
+			<button class="btn btn-default">Cancel</button>
+		</div>
+	</div>
+	<div class="compare-list-top ">
+		<div class="top-footer">
+			<div class="" style="width:400px;float:left;">
+				<strong>1</strong> campaign(s) in the compare list
+			</div>
+			<div class="" style="width:190px;float:left;">
+				<button class="btn btn-primary">Compare</button>
+				<button class="btn btn-default">Cancel</button>
+			</div>
+		</div>
+		<div class="top-list">
+			<ul class="list">
+				<li>
+					<img src="../img/mod/compare/1.png" />
+					<span class="name">CSDN.NET - 全球最大中文IT社区，为IT专业技术人员提供最全面的信息传播和服务平台</span>
+					<span class="icon" data-rfl-click="removeCompareCampaign"><i class="fa fa-trash-o"></i></span>
+				</li>
+				<li>
+					<img src="../img/mod/compare/1.png" />
+					<span class="name">CSDN.NET - 全球最大中文IT社区，为IT专业技术人员提供最全面的信息传播和服务平台</span>
+					<span class="icon" data-rfl-click="removeCompareCampaign"><i class="fa fa-trash-o"></i></span>
+				</li>
+				<li>
+					<img src="../img/mod/compare/1.png" />
+					<span class="name">CSDN.NET - 全球最大中文IT社区，为IT专业技术人员提供最全面的信息传播和服务平台</span>
+					<span class="icon" data-rfl-click="removeCompareCampaign"><i class="fa fa-trash-o"></i></span>
+				</li>
+				<li>
+					<img src="../img/mod/compare/1.png" />
+					<span class="name">CSDN.NET - 全球最大中文IT社区，为IT专业技术人员提供最全面的信息传播和服务平台</span>
+					<span class="icon" data-rfl-click="removeCompareCampaign"><i class="fa fa-trash-o"></i></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var timeId = null;
+		$('.compare-list').on('mouseenter', function(evt) {
+			clearTimeout(timeId);
+			$('.campaigns .list').slideDown();
+		}).on('mouseleave', function(evt) {
+			clearTimeout(timeId);
+			timeId = setTimeout(function() {
+				$('.campaigns .list').slideUp();
+			}, 300);
+		});
+		$('.compare-list-top').on('mouseenter', function(evt) {
+			clearTimeout(timeId);
+			$('.compare-list-top .list').slideDown();
+		}).on('mouseleave', function(evt) {
+			clearTimeout(timeId);
+			timeId = setTimeout(function() {
+				$('.compare-list-top .list').slideUp();
+			}, 300);
+
+		});
+	</script>
+</body>
+</html>

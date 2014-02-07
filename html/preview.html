@@ -1,0 +1,93 @@
+<html>
+<head>
+	<title>Preview</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link href="../css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/mod/preview/preview.css">
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<button id="show-preview" class="btn btn-primary">Preview</button>
+<div class="bg"></div>
+<div class="preview display-none">
+	<div class="header">
+		<div class="mobile-tools display-none">
+			<button class="btn btn-default show-desktop-view">Show Desktop</button>
+			<button class="btn btn-default rotate-mobile-view">Rotate</button>
+		</div>
+		<div class="desktop-tools">
+			<button class="btn btn-default show-mobile-view">Show Mobile</button>
+		</div>
+		<a href="#" class="close"><span class="icon"><i class="fa fa-times"></i></span></a>
+	</div>
+	<div class="preview-container">
+		<div class="desktop-view">
+			<iframe src="http://0.0.0.0:9000/index.html" class="" scrolling="yes" id="preview-iframe"></iframe>
+		</div>
+		<div class="mobile-view display-none" >
+				<iframe src="http://0.0.0.0:9000/index.html" id="mobile-iframe"></iframe>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	function close() {
+		$('.bg').removeClass('modal-backdrop fade in');
+		$('.preview').hide();
+	}
+	$('#show-preview').click(function() {
+		$('.preview').show();
+		$('.bg').addClass('modal-backdrop fade in');
+	});
+	$('.preview .header .close').click(function() {
+		close();
+	});
+	$('.bg').click(function() {
+		$('.bg').removeClass('modal-backdrop fade in');
+		$('.preview').hide();
+	});
+	$('.preview-container').click(function() {
+		close();
+	});
+	$('.show-mobile-view').click(function() {
+		$('.desktop-view').addClass('display-none');
+		$('.desktop-tools').addClass('display-none');
+		$('.mobile-view').removeClass('display-none');
+		$('.mobile-tools').removeClass('display-none');
+	});
+	$('.show-desktop-view').click(function() {
+		$('.mobile-view').addClass('display-none');
+		$('.desktop-view').removeClass('display-none');
+		$('.mobile-tools').addClass('display-none');
+		$('.desktop-tools').removeClass('display-none');
+	});
+	$('.rotate-mobile-view').click(function() {
+		if ($('.mobile-view').hasClass('rotate-mobile')) {
+			$('.mobile-view').removeClass('rotate-mobile');
+		} else {
+			$('.mobile-view').addClass('rotate-mobile');
+		}
+	});
+	// Fix iframe height
+	function fixScroll(){
+		var ifm = document.getElementById('preview-iframe');
+		console.log($(ifm.contentDocument).outerHeight());
+		if (ifm) {
+			$(ifm).height($(ifm.contentDocument).outerHeight());
+		}
+	}
+	/*
+	setTimeout(function() {
+		fixScroll();
+	}, 500);
+	*/
+
+	$(document).ready(function() {
+		setTimeout(function(){
+			fixScroll();
+		}, 500);
+	});
+
+</script>
+</body>
+</html>
