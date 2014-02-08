@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>Input Hint</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link href="../css/font-awesome.css" rel="stylesheet">
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.input-hint {
+			background-color: #eee;
+			color: #999;
+			padding-left: 13px;
+			padding-top: 8px;
+			padding-bottom: 8px;
+			position: absolute;
+			top: 100%;
+			width: 100%;
+			border-bottom-right-radius: 4px;
+			border-bottom-left-radius: 4px;
+			display: none;
+		}
+		.input-hint-wrapper {
+			position: relative;
+		}
+		.input-hint-wrapper.input-hint-on .input-hint{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Register</h1>
+		<hr>
+		<div class="row">
+			<form role="form" class="col-md-4">
+				<div class="form-group input-hint-wrapper">
+					<label for="inputEmail">Email address</label>
+					<input type="email" class="form-control" id="inputEmail" placeholder="Enter email">
+					<div class="input-hint">example: skyhacker@126.com</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword">Password</label>
+					<input type="password" class="form-control" id="inputPassword" placeholder="Enter password">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary" type="submit">Register</button>
+					<button class="btn btn-default" type="reset">Reset</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(".input-hint-wrapper input").on('blur', function(evt) {
+			$(this).parent().toggleClass('input-hint-on');
+		});
+		$(".input-hint-wrapper input").on('focus', function(evt) {
+			$(this).parent().toggleClass('input-hint-on');
+		});
+	</script>
+</body>
+</html>
