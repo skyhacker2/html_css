@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>顺序加载图片</title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+		<link href="../css/font-awesome.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	</head>
+	
+	<body>
+		<script>
+			var loadImage = function(arr, index) {
+				if (index >= arr.length) return;
+				var url = arr[index];
+				var image = document.createElement('img');
+				image.src = url;
+				document.getElementsByTagName('body')[0].appendChild(image);
+				image.onload = function() {
+					console.log(image.complete);
+					var check = function() {
+						if(image.complete) {
+							loadImage(arr, index+1);
+						} else {
+							setTimeout(check, 500);
+						}
+					}
+					check();
+					
+				}
+			}
+			var arr = [
+				'http://pic1.win4000.com/pic/c/66/3abd406349.jpg',
+				'http://pic1.win4000.com/pic/c/66/3abd406350.jpg',
+				'http://pic1.win4000.com/pic/c/66/3abd406351.jpg'
+			];
+			loadImage(arr, 0);
+		</script>
+	</body>
+</html>
