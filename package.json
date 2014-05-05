@@ -9,7 +9,7 @@
   "author": "eleven.chen",
   "license": "ISC",
   "devDependencies": {
-    "grunt-contrib-watch": "~0.5.2",
+    "grunt-contrib-watch": "^0.6.1",
     "grunt": "~0.4.1",
     "grunt-contrib-less": "~0.9.0",
     "matchdep": "~0.3.0",

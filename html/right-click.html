@@ -1,0 +1,149 @@
+<html>
+	<head>
+		<title>右键菜单</title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+		<link href="../css/font-awesome.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<style>
+			#contextmenu {
+				position: absolute;
+				display: block;
+			}
+			.menu, .submenu{
+				position: absolute;
+				list-style-type: none;
+				margin: 0px;
+				display: block;
+				border: 1px solid #eee;
+				z-index: 999;
+				padding: 5px 0px;
+				border-radius: 5px;
+				background-color: #fff;
+				box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+			}
+			.menu li {
+				width: 200px;
+			}
+			.menu a {
+				display: block;
+				padding: 5px;
+			}
+			.menu a:hover {
+				text-decoration: none;
+			}
+			.menu li:hover {
+				background-color: #e1e1e1;
+			}
+			.menu .divider{
+				height: 1px;
+				background-color: #e5e5e5;
+				margin: 7px 0px;
+			}
+			.submenu {
+				display: none;
+				position: absolute;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="content">
+			<h1>右键菜单</h1>
+		</div>
+		<script>
+			var menus = [
+				{
+					title: '菜单一',
+					action: function() {
+						alert('菜单一');
+					}
+				},
+				{
+					title: '菜单二',
+					submenus: [
+						{
+							title: '子菜单一',
+							action: function() {
+								alert('子菜单一');
+							}
+						},
+						{
+							title: '子菜单二',
+							submenus: [
+								{
+									title: '三级菜单',
+									action: function() {
+										alert('三级菜单');
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					title: '菜单三'
+				}
+			];
+
+			document.oncontextmenu = function() {
+				return false;
+			}
+
+			document.onmousedown = function(event) {
+				// 右键事件
+				if (event.button === 2) {
+					var container = $('<div id="contextmenu"></div>');	// 创建容器
+					// 容器的位置
+					container.css('left', event.x);
+					container.css('top', event.y);
+					$('body').append(container);
+
+					// 显示菜单
+					// menus 菜单数组
+					// parent 父级jQuery对象
+					var showMenu = function(menus, parent) {
+						var ul = $('<ul class="menu"></ul>');	
+						parent.append(ul);
+						var left = parent.css('width');
+						ul.css('left', left);
+						// 子菜单默认隐藏
+						if(parent != container) {
+							ul.hide();
+						}
+						for (var i = 0; i < menus.length; i++) {
+							(function(i) {
+								var item = menus[i];
+								var node = $('<li><a href="javascript:void(0);">' + item.title + '</a></li>');
+								node.click(function() {
+									// 把下一级的菜单隐藏
+									$('ul', parent).each(function(index, dom) {
+										$(this).find('ul').hide();
+									});
+									item.action && item.action(); // 执行动作
+									if (item.submenus) {
+										node.children('ul').show();
+									}
+									return false; // 防止冒泡
+								});
+								ul.append(node);
+								if (item.submenus) {
+									showMenu(item.submenus, node);
+								}
+							})(i);
+							
+						}
+					}
+					showMenu(menus, container);
+					return false;
+				} 
+			}
+
+			$('body').click(function() {
+				$('#contextmenu').remove();
+			});
+
+		</script>
+	</body>
+</html>
