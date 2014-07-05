@@ -1,0 +1,93 @@
+<html>
+<head>
+	<title>Color</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link href="../css/font-awesome.css" rel="stylesheet">
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<style type="text/css">
+		body {
+			background-color: #fff;
+		}
+		.wrapper {
+			position: relative;
+			margin-left: 200px;
+			margin-top: 200px;
+		}
+		.circle {
+			position: relative;
+			width: 70px;
+			height: 70px;
+			border-radius: 50%;
+			background-color: #428bca;
+		}
+		.ring {
+			position: absolute;
+			width: 70px;
+			height: 70px;
+			border-radius: 50%;
+			border: 2px solid #428bca;
+			transition: all 150ms linear;
+			margin-left: 0px;
+			margin-top: 0px;
+		}
+		.timer {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			line-height: 70px;
+			font-size: 20px;
+			font-weight: 100;
+			color: #fff;
+		}
+	</style> 
+</head>
+<body>
+	<div class="container">
+		<div class="wrapper">
+			<div class="circle">
+				<div class="timer">60</div>
+				<div class="ring"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var count = 1;
+		function change() {
+			opacity = 1 / count;
+			var margin = -(count * 70 - 70) / 2;
+			$('.ring').css('opacity', opacity);
+			$('.ring').css({"width": count * 70, "height": count * 70});
+			$('.ring').css({"margin-top": margin, "margin-left": margin});
+			count += 0.6;
+			if (count > 3) {
+				count = 1;
+				var margin = -(count * 70 - 70) / 2;
+				$('.ring').css('opacity', 0);
+				setTimeout(function() {
+					$('.ring').css({"width": 70, "height": 70});
+					$('.ring').css({"margin-top": margin, "margin-left": margin});
+				}, 150);
+				
+				//$('.ring').css('transition', "all 100ms ease-in-out");
+				setTimeout(change, 1000);
+			} else {
+				setTimeout(change, 150);
+			}
+		}
+		change();
+		function timer() {
+			var time =  +$(".timer").html();
+			if (time > 0) {
+				$(".timer").html(time-1);
+			}
+			setTimeout(timer, 1000);
+		}
+		timer();
+		
+	</script>
+</body>
+</html>

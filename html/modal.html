@@ -1,0 +1,145 @@
+<html>
+<head>
+	<title>Color</title>
+	<link href="../css/font-awesome.css" rel="stylesheet">
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<style type="text/css">
+		.btn {
+			display: block;
+			border: 2px solid #327fc7;
+			color: #327fc7;
+			border-radius: 4px;
+			padding: 0px;
+			/*background-color: #fff;*/
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 200px;
+			height: 60px;
+			line-height: 60px;
+			margin-left: -100px;
+			margin-top: -30px;
+			transition: all 500ms ease-in-out;
+			font-size: 20px;
+			overflow: hidden;
+			text-decoration: none;
+			z-index: 0;
+			text-align: center;
+		}
+		.btn:hover {
+			background-color: #327fc7;
+			color: #fff;
+		}
+		.btn .cover {
+			width: 100%;
+			height: 100%;
+			background-color: #327fc7;
+			position: absolute;
+			top: 100%;
+			transition: all 500ms ease-in-out;
+			z-index: -1;
+		}
+		.btn:hover .cover {
+			top: 0;
+		}
+		.modal-backdrop {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: #fff;
+			opacity: 0;
+			z-index: -1;
+			transition: all 500ms ease-in-out;
+		}
+		.modal {
+			position: fixed;
+			width: 100%;
+			height: 300px;
+			background-color: #327fc7;
+			z-index: 1041;
+			top: 50%;
+			left: -100%;
+			margin-top: -150px;
+			transition: all 500ms ease-in-out;
+		}
+		.modal .modal-wrapper {
+			position: relative;
+			width: 600px;
+			height: 100%;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		.modal .modal-wrapper h2, .modal .modal-wrapper .content {
+			color: #fff;
+		}
+		.modal .modal-wrapper .btns {
+			position: absolute;
+			bottom: 40px;
+			right: 0;
+		}
+		.modal .modal-wrapper .btns button {
+			border: 2px solid #fff;
+			padding: 10px 15px;
+			background-color: #327fc7;
+			color: #fff;
+			border-radius: 4px;
+			font-size: 18px;
+			font-weight: 200;
+			display: inline-block;
+			text-decoration: none;
+			transition: all 500ms ease-in-out;
+			cursor: pointer;
+		}
+		.modal .modal-wrapper .btns button:hover {
+			background-color: #fff;
+			color: #327fc7;
+		}
+		.modal .modal-wrapper .btns button.active {
+			background-color: #fff;
+			color: #327fc7;
+		}
+		body.show-modal .modal {
+			opacity: 1;
+			left: 0;
+		}
+		 body.show-modal .modal-backdrop {
+		 	opacity: 0.7;
+		 	z-index: 1040;
+		 }
+	</style> 
+</head>
+<body>
+	<div class="container">
+		<a id="launch" class="btn" href="javascript:void(0);">
+			<div class="cover"></div>
+			Launch Modal
+		</a>
+	</div>
+	<div class="modal-backdrop"></div>
+	<div class="modal">
+		<div class="modal-wrapper">
+			<h2>Alert</h2>
+			<div class="content">
+				Are you sure to close?
+			</div>
+			<div class="btns">
+				<button href="#" class="active" id="dialog-confirm">Confirm</button>
+				<button href="#" id="dialog-dismiss">Cancel</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$("#launch").click(function() {
+			$("body").toggleClass('show-modal');
+		})
+		$("#dialog-confirm").click(function() {
+			$('body').removeClass('show-modal');
+		});
+		$('#dialog-dismiss').click(function() {
+			$('body').removeClass('show-modal');
+		});
+	</script>
+</body>
+</html>

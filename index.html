@@ -4,7 +4,13 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link href="css/font-awesome.css" rel="stylesheet">
 	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+	<script type="text/javascript">
+		//document.write(['<script type="text/javascript" src="js/bootstrap.min.js"></', 'script>'].join(''));
+		var node = document.createElement('script');
+		node.src = "js/bootstrap.min.js";
+		var head = document.getElementsByTagName('head')[0].appendChild(node);
+	</script>
 	<style type="text/css">
 		ul {
 			list-style: decimal;
@@ -30,6 +36,8 @@
 			<li><a href="./html/sequence-load-img.html">顺序加载图片</a></li>
 			<li><a href="./html/right-click.html">自定义右键菜单</a></li>
 			<li><a href="./html/ready.html">模仿jquery ready</a></li>
+			<li><a href="./html/modal.html">Simple Modal</a></li>
+			<li><a href="./html/ani.html">Circle Animal</a></li>
 		</ul>
 	</div>
 </body>

@@ -1,0 +1,70 @@
+<html>
+<head>
+	<title>Color</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link href="../css/font-awesome.css" rel="stylesheet">
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<style type="text/css">
+		body {
+			background-color: #f5f5f5;
+		}
+		.container {
+			padding: 20px;
+			padding-top: 50px;
+			counter-reset: section;
+		}
+		.wrapper  {
+			position: relative;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			width: 600px;
+			height: 200px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 50px;
+			background-color: #fff;
+			padding: 10px;
+		}
+		.wrapper:after {
+			width: 58px;
+			height: 58px;
+			background-color: #327fc7;
+			position: absolute;
+			counter-increment: section;
+			content: counter(section);
+			color: #fff;
+			border-radius: 50%;
+			left: -29px;
+			top: -29px;
+			text-align: center;
+			line-height: 58px;
+			font-size: 20px;
+		}
+		.wrapper h3 {
+			text-align: center;
+			font-weight: 100;
+			letter-spacing: 2px;
+			padding-bottom: 10px;
+			border-bottom: 1px solid #ccc;
+		}
+
+	</style> 
+</head>
+<body>
+	<div class="container">
+		<section class="wrapper">
+			<h3>First, Create a account</h3>
+		</section>
+		<section class="wrapper">
+			<h3>Sectond, Login the system</h3>
+		</section>
+		<section class="wrapper">
+			<h3>Other...</h3>
+		</section>
+	</div>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>
