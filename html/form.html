@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<style type="text/css">
+		.container {
+			margin-top: 50px;
+			width: 500px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.form {
+			width: 400px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		input{
+			width: 300px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			outline: none;
+			height: 50px;
+			padding: 0px 20px;
+			background-color: #fff;
+			font-size: 15px;
+		}
+		input:focus {
+			border-color: #327fc7;
+		}
+		input:focus + label:before,
+		input:valid + label:before {
+			line-height: 1;
+			content: attr(alt);
+			background-color: #fff;
+			-webkit-transform: translateY(-25px);
+			-ms-transform: translateY(-25px);
+			-o-transform: translateY(-25px);
+			color: #327fc7;
+		}
+		input:valid {
+			border-color: #3f903f;
+		}
+		input:valid + label:before {
+			color: #3f903f;
+		}
+		label {
+			display: block;
+			margin-bottom: 20px;
+			margin-top: -50px;
+			line-height: 50px;
+			height: 50px;
+			font-size: 15px;
+			color: #999;
+			pointer-events: none;
+		}
+		input + label:before {
+			content: attr(placeholder);
+      		display: inline-block;
+      		color: #999999;
+      		margin: 0 20px;
+      		white-space: nowrap;
+      		transition: all 200ms ease-out;
+      		/*transform-origin: left center;*/
+		}
+		button {
+			border: 1px solid #398439;
+			background-color: #3f903f;
+			padding: 10px 15px;
+			color: #fff;
+			border-radius: 20px;
+			outline: none;
+			cursor: pointer;
+			font-size: 15px;
+		}
+		button:hover {
+			background-color: #398439;
+		}
+
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+		}
+	</style> 
+</head>
+<body>
+	<div class="container">
+		<form class="form" action="#">
+			<input type="text" required>
+			<label for placeholder="User Name" alt="Username is can inclde [a-z] and [0-9]"></label>
+			<input type="password" name="password" required>
+			<label for placeholder="Password" alt="Password at least 6"></label>
+			<input type="password" name="passwordagain" required>
+			<label for placeholder="Password Again" alt="Pasword Again"></label>
+			<button type="button">Register</button>
+		</form>
+	</div>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>
